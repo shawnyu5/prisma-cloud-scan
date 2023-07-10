@@ -14114,12 +14114,21 @@ function convertPrismaSeverity(severity) {
   switch (severity) {
     case "critical":
       return "error";
+
     case "high":
+    case "important":
       return "warning";
+
     case "medium":
+    case "moderate":
       return "note";
+
+    case "unimportant":
+    case "negligible":
+    case "not yet assigned":
     case "low":
       return "none";
+
     default:
       throw new Error(`Unknown severity: ${severity}`);
   }
